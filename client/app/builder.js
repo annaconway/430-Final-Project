@@ -13,21 +13,21 @@ const handleRoutine = (e) => {
     }
 
     // Post Routines
-    sendAjax('POST', $("#routineForm").attr("action"), $("#routineForm").serialize(), function () {
+    sendAjax('POST', $("#RoutineForm").attr("action"), $("#RoutineForm").serialize(), function () {
         loadRoutinesFromServer();
     });
 
     return false;
 };
 
-const routineForm = (props) => {
+const RoutineForm = (props) => {
     return (
-        <form id="routineForm"
+        <form id="RoutineForm"
             onSubmit={handleRoutine}
-            name="routineForm"
+            name="RoutineForm"
             action="/builder"
             method="POST"
-            className="routineForm"
+            className="RoutineForm"
         >
             <label htmlFor="name">Name: </label>
             <input id="nameField" type="text" name="name" />
@@ -51,11 +51,11 @@ const routineForm = (props) => {
     );
 };
 
-const routineList = function (props) {
+const RoutineList = function (props) {
     // If there are no routines
     if (props.routines.length === 0) {
         return (
-            <div className="routineList">
+            <div className="RoutineList">
                 <h3 className="emptyRoutine">No routines yet</h3>
             </div>
         );
@@ -75,7 +75,7 @@ const routineList = function (props) {
     });
 
     return (
-        <div className="routineList">
+        <div className="RoutineList">
             {routineNodes}
         </div>
     );
@@ -84,18 +84,18 @@ const routineList = function (props) {
 const loadRoutinesFromServer = () => {
     sendAjax('GET', '/getRoutines', null, (data) => {
         ReactDOM.render(
-            <routineList routines={data.routines} />, document.querySelector("#routines")
+            <RoutineList routines={data.routines} />, document.querySelector("#routines")
         );
     });
 };
 
 const setup = function (csrf) {
     ReactDOM.render(
-        <routineForm csrf={csrf} />, document.querySelector("#buildRoutine")
+        <RoutineForm csrf={csrf} />, document.querySelector("#buildRoutine")
     );
 
     ReactDOM.render(
-        <routineList routines={[]} />, document.querySelector("#routines")
+        <RoutineList routines={[]} />, document.querySelector("#routines")
     );
 
     loadRoutinesFromServer();

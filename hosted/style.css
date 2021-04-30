@@ -47,7 +47,7 @@ nav:nth-child(1) {
     background-color: #66bdff;
 }
 
-.routineForm {
+.RoutineForm {
     border: 2px solid #338acc;
     height: 80px;
     width: 900px;
@@ -58,7 +58,7 @@ nav:nth-child(1) {
     border-top-right-radius: 4px;
 }
 
-.routineForm label {
+.RoutineForm label {
     display: inline-block;
     width: 90px;
     margin-left: 10px;
@@ -68,7 +68,7 @@ nav:nth-child(1) {
     color: white;
 }
 
-.routineForm input[type=text] {
+.RoutineForm input[type=text] {
     float:left;
 }
 

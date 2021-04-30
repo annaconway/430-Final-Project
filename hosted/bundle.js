@@ -12,20 +12,20 @@ var handleRoutine = function handleRoutine(e) {
     return false;
   }
 
-  sendAjax('POST', $("#routineForm").attr("action"), $("#routineForm").serialize(), function () {
+  sendAjax('POST', $("#RoutineForm").attr("action"), $("#RoutineForm").serialize(), function () {
     loadRoutinesFromServer();
   });
   return false;
 };
 
-var routineForm = function routineForm(props) {
+var RoutineForm = function RoutineForm(props) {
   return (/*#__PURE__*/React.createElement("form", {
-      id: "routineForm",
+      id: "RoutineForm",
       onSubmit: handleRoutine,
-      name: "routineForm",
+      name: "RoutineForm",
       action: "/builder",
       method: "POST",
-      className: "routineForm"
+      className: "RoutineForm"
     }, /*#__PURE__*/React.createElement("label", {
       htmlFor: "name"
     }, "Name: "), /*#__PURE__*/React.createElement("input", {
@@ -64,10 +64,10 @@ var routineForm = function routineForm(props) {
   );
 };
 
-var routineList = function routineList(props) {
+var RoutineList = function RoutineList(props) {
   if (props.routines.length === 0) {
     return (/*#__PURE__*/React.createElement("div", {
-        className: "routineList"
+        className: "RoutineList"
       }, /*#__PURE__*/React.createElement("h3", {
         className: "emptyRoutine"
       }, "No routines yet"))
@@ -97,24 +97,24 @@ var routineList = function routineList(props) {
     );
   });
   return (/*#__PURE__*/React.createElement("div", {
-      className: "routineList"
+      className: "RoutineList"
     }, routineNodes)
   );
 };
 
 var loadRoutinesFromServer = function loadRoutinesFromServer() {
   sendAjax('GET', '/getRoutines', null, function (data) {
-    ReactDOM.render( /*#__PURE__*/React.createElement(routineList, {
+    ReactDOM.render( /*#__PURE__*/React.createElement(RoutineList, {
       routines: data.routines
     }), document.querySelector("#routines"));
   });
 };
 
 var setup = function setup(csrf) {
-  ReactDOM.render( /*#__PURE__*/React.createElement(routineForm, {
+  ReactDOM.render( /*#__PURE__*/React.createElement(RoutineForm, {
     csrf: csrf
   }), document.querySelector("#buildRoutine"));
-  ReactDOM.render( /*#__PURE__*/React.createElement(routineList, {
+  ReactDOM.render( /*#__PURE__*/React.createElement(RoutineList, {
     routines: []
   }), document.querySelector("#routines"));
   loadRoutinesFromServer();
