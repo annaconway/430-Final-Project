@@ -2,18 +2,24 @@ const models = require('../models');
 
 const { Account } = models;
 
+// ---------------
 // LOGIN PAGE
+// ---------------
 const loginPage = (req, res) => {
   res.render('login', { csrfToken: req.csrfToken() });
 };
 
-// LOG OUT REQUEST
+// ---------------
+// LOGOUT REQUEST
+// ---------------
 const logout = (req, res) => {
   req.session.destroy();
   res.redirect('/');
 };
 
-// LOGIN VERIFICATION
+// ---------------
+// LOGIN REQUEST
+// ---------------
 const login = (request, response) => {
   const req = request;
   const res = response;
@@ -38,7 +44,9 @@ const login = (request, response) => {
   });
 };
 
-// SIGNUP METHOD
+// ---------------
+// SIGNUP REQUEST
+// ---------------
 const signup = (request, response) => {
   const req = request;
   const res = response;
@@ -86,7 +94,9 @@ const signup = (request, response) => {
   });
 };
 
-// SECURITY TOKEN
+// ---------------
+// GET SECURITY TOKEN
+// ---------------
 const getToken = (request, response) => {
   const req = request;
   const res = response;

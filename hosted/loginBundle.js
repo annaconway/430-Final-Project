@@ -1,7 +1,11 @@
 "use strict";
 
+// ---------------
+// HANDLE LOGIN
+// Sends login to the server
+// ---------------
 var handleLogin = function handleLogin(e) {
-  e.preventDefault();
+  e.preventDefault(); // No username or password?
 
   if ($("#user").val() == '' || $("#pass").val() == '') {
     handleError("Username or password is empty");
@@ -11,15 +15,20 @@ var handleLogin = function handleLogin(e) {
   console.log($("input[name=_csrf]").val());
   sendAjax('POST', $("#loginForm").attr("action"), $("#loginForm").serialize(), redirect);
   return false;
-};
+}; 
 
+// ---------------
+// HANDLE SIGNUP
+// Sends new account to the server
+// ---------------
 var handleSignup = function handleSignup(e) {
-  e.preventDefault();
+  e.preventDefault(); // No username or password?
 
   if ($("#user").val() == '' || $("#pass").val() == '' || $("#pass2").val() == '') {
     handleError("All fields are required");
     return false;
-  }
+  } // Passwords don't match?
+
 
   if ($("#pass").val() !== $("#pass2").val()) {
     handleError("Passwords do not match");
@@ -28,8 +37,12 @@ var handleSignup = function handleSignup(e) {
 
   sendAjax('POST', $("#signupForm").attr("action"), $("#signupForm").serialize(), redirect);
   return false;
-};
+}; 
 
+// ---------------
+// LOGIN WINDOW
+// React component for login
+// ---------------
 var LoginWindow = function LoginWindow(props) {
   return (/*#__PURE__*/React.createElement("form", {
       id: "loginForm",
@@ -62,8 +75,12 @@ var LoginWindow = function LoginWindow(props) {
       value: "Sign in"
     }))
   );
-};
+}; 
 
+// ---------------
+// SIGNUP WINDOW
+// React component for signup
+// ---------------
 var SignupWindow = function SignupWindow(props) {
   return (/*#__PURE__*/React.createElement("form", {
       id: "signupForm",
@@ -103,20 +120,32 @@ var SignupWindow = function SignupWindow(props) {
       value: "Sign Up"
     }))
   );
-};
+}; 
 
+// ---------------
+// CREATE LOGIN WINDOW
+// Applies react component to the site
+// ---------------
 var createLoginWindow = function createLoginWindow(csrf) {
   ReactDOM.render( /*#__PURE__*/React.createElement(LoginWindow, {
     csrf: csrf
   }), document.querySelector("#content"));
-};
+}; 
 
+// ---------------
+// CREATE SIGNUP WINDOW
+// Applies react component to the site
+// ---------------
 var createSignupWindow = function createSignupWindow(csrf) {
   ReactDOM.render( /*#__PURE__*/React.createElement(SignupWindow, {
     csrf: csrf
   }), document.querySelector("#content"));
-};
+}; 
 
+// ---------------
+// SETUP
+// Establish functionality
+// ---------------
 var setup = function setup(csrf) {
   var loginButton = document.querySelector("#loginButton");
   var signuputton = document.querySelector("#signupButton");
@@ -131,17 +160,25 @@ var setup = function setup(csrf) {
     return false;
   });
   createLoginWindow(csrf); //default view
-};
+}; 
 
+// ---------------
+// GET CSRF TOKEN
+// ---------------
 var getToken = function getToken() {
   sendAjax('GET', '/getToken', null, function (result) {
     setup(result.csrfToken);
   });
-};
+}; 
 
+// ---------------
+// GET TOKEN FOR PAGE
+// ---------------
 $(document).ready(function () {
   getToken();
 });
+
+
 "use strict";
 
 var handleError = function handleError(message) {
@@ -149,9 +186,6 @@ var handleError = function handleError(message) {
 };
 
 var redirect = function redirect(response) {
-  $("#message").animate({
-    width: 'hide'
-  }, 350);
   window.location = response.redirect;
 };
 

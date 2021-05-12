@@ -1,4 +1,7 @@
 
+// ---------------
+// REQUIRES LOGIN
+// ---------------
 const requiresLogin = (req, res, next) => {
   if (!req.session.account) {
     return res.redirect('/');
@@ -6,6 +9,9 @@ const requiresLogin = (req, res, next) => {
   return next();
 };
 
+// ---------------
+// REQUIRES LOGOUT
+// ---------------
 const requiresLogout = (req, res, next) => {
   if (req.session.account) {
     return res.redirect('/builder');
@@ -13,6 +19,9 @@ const requiresLogout = (req, res, next) => {
   return next();
 };
 
+// ---------------
+// REQUIRES SECURE
+// ---------------
 const requiresSecure = (req, res, next) => {
   if (req.headers['x-forwarded-proto'] !== 'https') {
     return res.redirect(`https://${req.hostname}${req.url}`);
@@ -20,6 +29,9 @@ const requiresSecure = (req, res, next) => {
   return next();
 };
 
+// ---------------
+// BYPASS SECURE
+// ---------------
 const bypassSecure = (req, res, next) => {
   next();
 };

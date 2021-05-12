@@ -1,12 +1,15 @@
+
 html, body {
     height: 100%;
     width: 100%;
-    margin: 0;
+    margin: 5px;
     padding: 0;
     overflow-x: hidden;
+    color: darkblue;    
+    font-family: 'Tenor Sans', sans-serif;
 }
 
-#logo {
+#bubbly {
     height: 40px;
     width: 40;
     padding-top: 5px;
@@ -14,70 +17,155 @@ html, body {
     border-radius: 8px;
 }
 
-nav {
-    width: 100%;
-    height: 50px;
-    background-color: #55acee;
+h1 {
+    font-family: 'Delius', cursive;
+    font-size: 40px;
+    margin: 0%;
+    margin-left: 15px;
+    display: inline;
 }
 
-nav:nth-child(1) {
-    padding-left: 25px;
+footer {
+    font-family: 'Reenie Beanie', cursive;
+    font-size: larger;
 }
 
-.navlink {
-    padding: 5px;
-    padding-top: 12px;
-    padding-left: 20px;
+
+/* NAVIGATION BAR */
+/* source: https://codepen.io/grohit/pen/jObGzdG */
+/* source: https://codepen.io/melnik909/pen/VQOodQ */
+
+#navigation {
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0px;
+    margin-right: 3%;
+    padding: 0 30px;
+    background-color: rgb(81, 2, 138);
+}
+
+li:not(:last-child) {
+    margin-right: 40px;
+}
+
+#links {
+    color: indigo;
+}
+
+.navLink {
     color: white;
-    font-size: 1.3em;
-    float: left;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 10px;
+    display: inline-flex;
 }
 
-.navlink a, .navlink a:link, .navlink a:visited, .navlink a:hover, .navlink a:active {
-    color: white;
+.navLink a {
     text-decoration: none;
-    padding: 5px;
-    border-radius: 4px;
-    background-color: #55acee;
-    transition: background-color 0.4s ease;
+    color: white;
 }
 
-.navlink a:hover {
-    transition: background-color 0.8s ease;
-    background-color: #66bdff;
+#active {
+    background-color: rgb(98, 2, 167);
 }
+
+.navLink{
+  position: relative;
+  overflow: hidden;
+  will-change: color;
+  transition: color .25s ease-out;
+}
+
+.navLink::before, 
+.navLink::after{
+  content: "";
+  width: 0;
+  height: 3px;
+  background-color: var(--textUnderlinedLineColor, currentColor);
+  will-change: width;
+  transition: width .1s ease-out;
+  position: absolute;
+  bottom: 0;
+}
+
+.navLink::before{
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navLink::after{
+  right: 50%;
+  transform: translateX(50%); 
+}
+
+.navLink:hover::before, 
+.navLink:hover::after{
+  width: 100%;
+  transition-duration: .2s;
+}
+
+#loginZone {
+    margin-right: 3%;
+    padding-left: 70%;
+    background-color: rgb(50, 0, 85);
+}
+
+#loginButton, #signupButton {
+    height: 15px;
+}
+
+/* IN APP CSS */
 
 .RoutineForm {
-    border: 2px solid #338acc;
-    height: 80px;
-    width: 900px;
-    margin-top:0px;
+    border: 15px solid indigo;
+    width:400px;
+    height: 300px;
+    margin-top:0px; 
+    margin: auto;
+    width: 50% ;
     padding-top:10px;
-    background-color: #55acee;
+    background-color: indigo;
     border-bottom-right-radius: 4px;
     border-top-right-radius: 4px;
 }
 
+
 .RoutineForm label {
-    display: inline-block;
-    width: 90px;
-    margin-left: 10px;
-    margin-bottom: 20px;
-    font-size: 1.2em;
+    width: 300px;
     float: left;
     color: white;
 }
 
 .RoutineForm input[type=text] {
-    float:left;
+    width: 100%;
+    padding: 5px 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#skinField {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+}
+
+#skinField label {    
+  width: unset;
+  float: unset;
+  padding-right: 10px;
 }
 
 .buildRoutineSubmit {
     transition: background-color 0.4s ease;
     display: inline;
     width: 90px;
-    background-color: #55acee;
-    border-radius: 2px;
+    margin-top: 10px;
+    padding: 5px;
+    background-color: black;
+    border-radius: 15px;
     color: white;
     text-decoration: none;
 }
@@ -88,15 +176,14 @@ nav:nth-child(1) {
 
 .buildRoutineSubmit:hover {
     transition: background-color 0.4s ease;
-    background-color: #338acc;
+    background-color: rgb(112, 3, 190);
 }
 
 .mainForm {
-    height: 300px;
+    height: 100px;
     width: 350px;
     margin: 0 auto;
-    padding-top: 350px;
-    font-size: 1.2em;
+    padding-top: 100px;
 }
 
 .mainForm h3 {
@@ -119,9 +206,9 @@ nav:nth-child(1) {
     margin-top: 14px;
     font-size: 1.2em;
     width: 100px;
-    background-color: #55acee;
-    border-radius: 2px;
-    border-color: #66acee;
+    background-color: indigo;
+    border-radius: 30px;
+    border-color: indigo;
     padding: 2px 0px;
     color: white;
     text-decoration: none;
@@ -133,7 +220,7 @@ nav:nth-child(1) {
 
 .formSubmit:hover {
     transition: background-color 0.4s ease;
-    background-color: #338acc;
+    background-color: black;
 }
 
 #user, #pass, #pass2 {
@@ -145,7 +232,7 @@ nav:nth-child(1) {
 
 #user:focus, #pass:focus, #pass2:focus {
     outline: none;
-    box-shadow: 0px 0px 1px 1px #55acee;
+    box-shadow: 0px 0px 1px 1px black;
 }
 
 #message {
@@ -179,24 +266,14 @@ nav:nth-child(1) {
     font-style: italic;
 }
 
-#routine {
-    z-index: 225;
-    margin-top: -20px;
-    margin-left: 135px;
-    height: 450px;
-    width: 300px;
-    -ms-transform: rotate(330deg);
-    -webkit-transform: rotate(330deg); 
-    transform: rotate(330deg);
-}
 
 #routines {
-    width: 40%;
+    width: 70%;
     min-width: 400px;
-    border: 2px solid #55acee;
+    border: 2px solid white;
     border-radius: 4px;
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 10px;
 }
 
 .routine {
@@ -204,9 +281,8 @@ nav:nth-child(1) {
     margin: 0 auto;
     margin-top: 2px;
     margin-bottom: 2px;
-    border: 2px solid #55acee;
+    border: 2px solid;
     border-radius: 4px;
-    background-color: #55acee;
     padding: 10px;
     min-height:60px;
     overflow: hidden;
@@ -214,9 +290,8 @@ nav:nth-child(1) {
 
 .routine:hover {
     transition: border-color 0.2s ease-out;
-    border-color: rgba(255,255,255, 0.8);
+    border-color:indigo;
     transition: background-color 2.6s ease-out;
-    background-color: #66bfff;
 }
 
 img.routineFace {

@@ -9,7 +9,6 @@
   <!-- FONT -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Delius&family=Reenie+Beanie&family=Tenor+Sans&display=swap" rel="stylesheet">
-    
   <!-- FAVICON -->
   <link rel="shortcut icon" href="/assets/img/favicon.ico"/>
   <!-- CSS -->
@@ -33,22 +32,37 @@
         </ul>
     </nav>
 
-    <!-- GUIDE -->
-    <section>
-                
-        <h2>Users</h2>
-        <p>Unsure of what you need to develop your routine? Head to <a href="/information.html">WHERE DO I START?</a> If you already know your routine, head to <a href="/input.html">ROUTINE BUILDER</a></p>
-        <h2>API</h2>
-        <p>To access the API, use these endpoints. </p>
-        <ul>
-            <li><a href="/routines">Routine example</a></li>
-            <li><a href="/getRoutine">Routine Database</a></li>
-        </ul>
-        <h2>MISC</h2>
-        <ul>
-            <li><a href="/error.html">Error Page</a></li>
-            <li><a href="/default-styles.css">CSS</a></li>
-        </ul></section>
+    <button id="btnRoutine">Show a Routine</button>
+    <button id="filterOilyButton"
+        onClick="loadOilyRoutinesFromServer"
+        name="oily button"
+        action="/getOilyRoutines"
+        method="GET"
+        className="filterOilyButton"
+        >Show OILY Routines</button> 
+    <button id="filterNormalButton"
+        onClick="loadNormalRoutinesFromServer"
+        name= "normal button"
+        action="/getNormalRoutines"
+        method="GET"
+        className="filterNormalButton"
+        >Show NORMAL Routines</button>
+    <button id="filterCombinationButton"
+        onClick="loadCombinationRoutinesFromServer()"
+        name= "combination button"
+        action="/getCombinationRoutines"
+        method="GET"
+        className="filterCombinationButton"
+        >Show COMBINATION Routines</button>
+    <button id="filterDryButton"
+        onClick="loadDryRoutinesFromServer()"
+        name="dry button"
+        action="/getDryRoutines"
+        method="GET"
+        className="filterDryButton"
+        >Shown DRY Routines</button>
+
+    <div id="buildRoutine" id="Routines"></div>
 
     <!-- FOOTER  -->
     <footer>
@@ -57,5 +71,6 @@
         <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
         <div>Icons made by <a href="https://www.flaticon.com/authors/smalllikeart" title="smalllikeart">smalllikeart</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     </footer>
+  <script src="/assets/bundle.js"></script>
     </body>
 </html>

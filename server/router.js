@@ -16,13 +16,19 @@ const router = (app) => {
   app.post('/signup', mid.requiresSecure, mid.requiresLogout, controllers.Account.signup);
   app.get('/logout', mid.requiresLogin, controllers.Account.logout);
 
-  // BUILDER PAGES
+  // BUILDER + APP PAGES
   app.get('/getRoutines', mid.requiresLogin, controllers.Routine.getRoutines);
+  app.get('/getOilyRoutines', mid.requiresLogin, controllers.Routine.getOilyRoutines);
+  app.get('/getDryRoutines', mid.requiresLogin, controllers.Routine.getDryRoutines);
+  app.get('/getNormalRoutines', mid.requiresLogin, controllers.Routine.getNormalRoutines);
+  app.get('/getCombinationRoutines', mid.requiresLogin, controllers.Routine.getCombinationRoutines);
+  app.post('/deleteRoutine', mid.requiresSecure, controllers.Routine.deleteRoutine);
+  app.post('/updateRoutine', mid.requiresSecure, controllers.Routine.updateRoutine);
   app.get('/builder', mid.requiresLogin, controllers.Routine.builderPage);
   app.post('/builder', mid.requiresLogin, controllers.Routine.buildRoutine);
 
   // ADMIN PAGES
-  app.get('/admin', mid.requiresSecure, controllers.Site.homePage);
+  app.get('/admin', mid.requiresSecure, controllers.Site.adminPage);
 };
 
 module.exports = router;

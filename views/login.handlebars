@@ -8,13 +8,34 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.6.2/remarkable.min.js"></script>
+  <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Delius&family=Reenie+Beanie&family=Tenor+Sans&display=swap" rel="stylesheet">
+    
   <!-- FAVICON -->
-  <link rel="shortcut icon" href="/assets/img/favicon.png"/>
+  <link rel="shortcut icon" href="/assets/img/favicon.ico"/>
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="/assets/style.css"/>
 </head>
 <body> 
-  <nav><a href="/login">
+  <!-- MAIN  -->
+    <main>
+        <img id= "bubbly" src="/assets/img/bubbles.png" alt="Icon of bubbles"><h1>Skindigo</h1>
+        <p id="desc">Skindigo is a skincare app that helps you figure out your skin needs. Not only can you track and post the products you use, but you can also see what products people with your skintype use as well. </p>
+    </main>
+
+    <!-- CONTROLS  -->
+    <nav id="links">
+        <ul id="navigation">
+            <li class="navLink" ><a href="/">HOME</a></li>
+            <li class="navLink"><a href="/info">WHERE DO I START?</a></li>
+            <li class="navLink" id="active"><a href="/app">ROUTINE APP</a></li>
+            <li class="navLink"><a href="/admin">ADMIN PAGE</a></li>
+        </ul>
+    </nav>
+    <br>
+  <!-- LOGIN -->
+  <nav id="loginZone"><a href="/login">
     <div class="navlink"><a id="loginButton" href="/login">Login</a></div>
     <div class="navlink"><a id="signupButton" href="/signup">Sign up</a></div>
   </nav>
@@ -24,3 +45,4 @@
   <script src="/assets/loginBundle.js"></script>
 </body>
 </html>
+

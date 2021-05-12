@@ -10,7 +10,7 @@ const infoPage = (req, res) => {
 
 // INFO PAGE
 const adminPage = (req, res) => {
-  res.render('admin', { csrfToken: req.csrfToken() });
+  res.render('layouts/admin', { csrfToken: req.csrfToken() });
 };
 
 module.exports.homePage = homePage;
