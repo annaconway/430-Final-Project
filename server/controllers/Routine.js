@@ -169,9 +169,7 @@ const updateRoutine = (request, response) => {
   const req = request;
   const res = response;
 
-  console.log('hello?');
-
-  return Routine.RoutineModel.findAndEdit(
+  return Routine.RoutineModel.findAndUpdate(
     req.body._id,
     req.body.name,
     req.body.skin,
@@ -183,10 +181,8 @@ const updateRoutine = (request, response) => {
         console.log(err);
         return res.status(400).json({ error: 'An error occured' });
       }
-
       return res.status(200).json({ message: 'Updated Routine' });
-    },
-  );
+    });
 };
 
 module.exports.builderPage = builderPage;

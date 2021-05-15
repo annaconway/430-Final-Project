@@ -134,13 +134,33 @@ li:not(:last-child) {
 }
 
 
+.UpdateForm{
+    width:400px;
+    height: 300px;
+    margin-top:0px; 
+    margin: auto;
+    width: 80% ;
+    padding-top:10px;
+    background-color: white;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.UpdateForm label
+{
+    width: 300px;
+    float: left;
+    color: indigo;
+}
+
+
 .RoutineForm label {
     width: 300px;
     float: left;
     color: white;
 }
 
-.RoutineForm input[type=text] {
+.RoutineForm input[type=text], .UpdateForm input[type=text] {
     width: 100%;
     padding: 5px 10px;
     display: inline-block;
@@ -149,20 +169,20 @@ li:not(:last-child) {
     box-sizing: border-box;
 }
 
-#skinField {
+#skinField, #skinEditField{
   display: block;
   position: relative;
   padding-left: 35px;
   margin-bottom: 12px;
 }
 
-#skinField label {    
+#skinField label, #skinEditField label{    
   width: unset;
   float: unset;
   padding-right: 10px;
 }
 
-.buildRoutineSubmit {
+.buildRoutineSubmit, #updateRoutineSubmit {
     transition: background-color 0.4s ease;
     display: inline;
     width: 90px;
@@ -173,6 +193,7 @@ li:not(:last-child) {
     color: white;
     text-decoration: none;
 }
+
 
 #btnRoutine, #filterOilyButton, #filterNormalButton, #filterCombinationButton, #filterDryButton {
     transition: background-color 0.4s ease;

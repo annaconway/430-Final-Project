@@ -80,8 +80,7 @@ var deleteRoutinesFromServer = function deleteRoutinesFromServer(e) {
   e.preventDefault();
   var csrf = document.querySelector('input[name="_csrf"]').value;
   var id = e.currentTarget.getAttribute('name');
-  var deleteData = "_csrf=".concat(csrf, "&routineId=").concat(id);
-  console.log("2: " + csrf); // Update routines
+  var deleteData = "_csrf=".concat(csrf, "&routineId=").concat(id); // Update routines
 
   sendAjax('POST', $("#DeleteRoutine").attr("action"), deleteData, function () {
     loadRoutinesFromServer();
@@ -93,9 +92,7 @@ var deleteRoutinesFromServer = function deleteRoutinesFromServer(e) {
 
 
 var updateRoutinesFromServer = function updateRoutinesFromServer(e) {
-  console.log("hello2");
-  e.preventDefault();
-  console.log("hello2"); // Empty parameters?
+  e.preventDefault(); // Empty parameters?
 
   if ($("#nameEditField").val() == '' || $("#concernsEditField").val() == '' || $("#cleanserEditField").val() == '' || $("#moisturizerEditField").val() == '' || $("#sunscreenEditField").val() == '') {
     handleError("All fields are required");
@@ -276,7 +273,11 @@ var UpdateForm = function UpdateForm(props) {
       value: "Update Routine"
     }))
   );
-};
+}; // ---------------
+// ADMIN CONTENT
+// React component for admin page
+// ---------------
+
 
 var adminContent = function adminContent(props) {
   return (/*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", null, " ", FilterDryButton(), " "), /*#__PURE__*/React.createElement("span", null, " ", FilterOilyButton()), /*#__PURE__*/React.createElement("span", null, " ", FilterNormalButton()), /*#__PURE__*/React.createElement("span", null, " ", FilterCombinationButton()), /*#__PURE__*/React.createElement("section", {
@@ -308,7 +309,7 @@ var DeleteButton = function DeleteButton(props) {
 var UpdateButton = function UpdateButton(props) {
   return (/*#__PURE__*/React.createElement("button", {
       id: "updateRoutine",
-      onClick: updateRoutinesFromServer,
+      onClick: update,
       name: props,
       action: "/updateRoutine",
       method: "POST",
@@ -472,7 +473,6 @@ var update = function update(e) {
   e.preventDefault();
   var csrf = document.querySelector('input[name="_csrf"]').value;
   var id = e.currentTarget.getAttribute('name');
-  console.log("1: " + csrf);
   ReactDOM.render( /*#__PURE__*/React.createElement(UpdateForm, {
     csrf: csrf,
     _id: id

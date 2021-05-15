@@ -88,9 +88,6 @@ const deleteRoutinesFromServer = (e) =>{
 
     const deleteData = `_csrf=${csrf}&routineId=${id}`;
 
-    
-    console.log("2: " + csrf);
-
     // Update routines
     sendAjax('POST', $("#DeleteRoutine").attr("action"), deleteData, function() {
         loadRoutinesFromServer();
@@ -104,10 +101,7 @@ const deleteRoutinesFromServer = (e) =>{
 // ---------------
 const updateRoutinesFromServer = (e) => {
         
-    console.log("hello2");
     e.preventDefault();
-
-    console.log("hello2");
 
     // Empty parameters?
     if ($("#nameEditField").val() == '' ||
@@ -224,6 +218,10 @@ const UpdateForm = (props) => {
     );
 };
 
+// ---------------
+// ADMIN CONTENT
+// React component for admin page
+// ---------------
 const adminContent = (props) => {  
     return (
         <div>     
@@ -261,7 +259,7 @@ const DeleteButton = (props) =>{
 const UpdateButton = (props) =>{
     return (
         <button id="updateRoutine"
-        onClick={updateRoutinesFromServer}
+        onClick={update}
         name={props}
         action="/updateRoutine"
         method="POST"
@@ -414,8 +412,6 @@ const update = (e) =>{
 
     const csrf = document.querySelector('input[name="_csrf"]').value;
     const id = e.currentTarget.getAttribute('name');
-
-    console.log("1: " + csrf);
 
     ReactDOM.render(
          <UpdateForm csrf={csrf} _id={id}/>, document.getElementById(`${id}`) 
