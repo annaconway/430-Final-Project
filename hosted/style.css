@@ -69,6 +69,10 @@ li:not(:last-child) {
     background-color: rgb(98, 2, 167);
 }
 
+#changePass {
+    width: 200px;
+}
+
 .navLink{
   position: relative;
   overflow: hidden;
