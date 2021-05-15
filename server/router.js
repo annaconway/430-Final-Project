@@ -15,6 +15,7 @@ const router = (app) => {
   app.get('/getToken', mid.requiresSecure, controllers.Account.getToken);
   app.post('/signup', mid.requiresSecure, mid.requiresLogout, controllers.Account.signup);
   app.get('/logout', mid.requiresLogin, controllers.Account.logout);
+  app.post('/changePass', mid.requiresSecure, mid.requiresLogout, controllers.Account.changePassword);
 
   // BUILDER + APP PAGES
   app.get('/getRoutines', mid.requiresLogin, controllers.Routine.getRoutines);

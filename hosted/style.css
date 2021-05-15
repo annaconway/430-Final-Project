@@ -170,6 +170,28 @@ li:not(:last-child) {
     text-decoration: none;
 }
 
+#btnRoutine, #filterOilyButton, #filterNormalButton, #filterCombinationButton, #filterDryButton {
+    transition: background-color 0.4s ease;
+    display: inline;
+    width: 250px;
+    margin-top: 10px;
+    padding: 5px;
+    background-color: black;
+    border-radius: 15px;
+    color: white;
+    text-decoration: none;
+}
+
+#btnRoutine:link, #filterOilyButton:link, #filterNormalButton:link, #filterCombinationButton:link, #filterDryButton:link,
+#btnRoutine:visited, #filterOilyButton:visited, #filterNormalButton:visited, #filterCombinationButton:visited, #filterDryButton:visited, 
+#btnRoutine:hover, #filterOilyButton:hover, #filterNormalButton:hover, #filterCombinationButton:hover, #filterDryButton:hover,
+#btnRoutine:active, #filterOilyButton:active, #filterNormalButton:active, #filterCombinationButton:active, #filterDryButton:active
+{
+    color:white;
+    transition: background-color 0.4s ease;
+    background-color: rgb(112, 3, 190);
+}
+
 .buildRoutineSubmit:link, .buildRoutineSubmit:visited, .buildRoutineSubmit:hover, .buildRoutineSubmit:active {
     color: white;
 }
@@ -223,14 +245,14 @@ li:not(:last-child) {
     background-color: black;
 }
 
-#user, #pass, #pass2 {
+#user, #pass, #pass2, #pass3 {
     text-align: center;
     font-size: 1.1em;
     width: 180px;
     border-radius: 6px;
 }
 
-#user:focus, #pass:focus, #pass2:focus {
+#user:focus, #pass:focus, #pass3:focus, #pass2:focus {
     outline: none;
     box-shadow: 0px 0px 1px 1px black;
 }
