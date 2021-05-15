@@ -37,16 +37,15 @@
         </ul>
     </nav>
 
-    <button id="btnRoutine">Show a Routine</button>
     <button id="filterOilyButton"
-        onClick="loadOilyRoutinesFromServer"
+        onClick="loadOilyRoutinesFromServer()"
         name="oily button"
         action="/getOilyRoutines"
         method="GET"
         className="filterOilyButton"
         >Show OILY Routines</button> 
     <button id="filterNormalButton"
-        onClick="loadNormalRoutinesFromServer"
+        onClick="loadNormalRoutinesFromServer()"
         name= "normal button"
         action="/getNormalRoutines"
         method="GET"
@@ -67,7 +66,11 @@
         className="filterDryButton"
         >Shown DRY Routines</button>
 
-    
+    <div id="routines">
+
+    </div>
+
+    <p>NOTE: You can only delete or update routines that belong to you. Login to your account and head to the app page in order to delete or update routines.</p>
 
     <!-- FOOTER  -->
     <footer>

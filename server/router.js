@@ -19,10 +19,10 @@ const router = (app) => {
 
   // BUILDER + APP PAGES
   app.get('/getRoutines', mid.requiresLogin, controllers.Routine.getRoutines);
-  app.get('/getOilyRoutines', mid.requiresLogin, controllers.Routine.getOilyRoutines);
-  app.get('/getDryRoutines', mid.requiresLogin, controllers.Routine.getDryRoutines);
-  app.get('/getNormalRoutines', mid.requiresLogin, controllers.Routine.getNormalRoutines);
-  app.get('/getCombinationRoutines', mid.requiresLogin, controllers.Routine.getCombinationRoutines);
+  app.get('/getOilyRoutines', mid.requiresSecure, controllers.Routine.getOilyRoutines);
+  app.get('/getDryRoutines', mid.requiresSecure, controllers.Routine.getDryRoutines);
+  app.get('/getNormalRoutines', mid.requiresSecure, controllers.Routine.getNormalRoutines);
+  app.get('/getCombinationRoutines', mid.requiresSecure, controllers.Routine.getCombinationRoutines);
   app.post('/deleteRoutine', mid.requiresSecure, controllers.Routine.deleteRoutine);
   app.post('/updateRoutine', mid.requiresSecure, controllers.Routine.updateRoutine);
   app.get('/builder', mid.requiresLogin, controllers.Routine.builderPage);
